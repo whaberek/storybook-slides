@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <!-- EDYTUJ odpowiednio tagi: TITLE,DESCRIPTION,AUTHOR -->
+    <title>Storybook | PGS Software</title>
+    <meta name="description" content="Opis prezentacji">
+    <meta name="author" content="Wojciech Haberek">
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link href="main.css" rel="stylesheet">
+</head>
+<!-- usuń klasę jeśli chcesz ciemne style (zenburn) dla 'code snippets' -->
+<body class="light-code">
+<div class="reveal">
+    <div class="slides">
+        <!-- TUTAJ ZACZYNA SIĘ PREZENTACJA - pierwszy slide -->
+
+        <!-- Pierwszy slide -->
+        <section data-state="squares-off theme orange">
+		<p><img src="./images/pgssoftware-logo-white.svg" alt="logo" class="img200"></p>
+            <h2>Storybook</h2>
+            <ul class="list-horizontal">
+                <li>Created by <a href="mailto:whaberek@pgs-soft.com">Wojciech Haberek</a></li>
+            </ul>
+        </section>
+		
+				<section>
+		<p>
+                    <b>Clone or download:</b><br/>
+		<div class="divider">
+                        <pre>
+                             <code>
+                                https://github.com/desfero/beer_guru
+                             </code>
+                        </pre>
+                </div>
+				</p>
+		</section>
+
+
+        <!--Drugi slide-->
+        <section>
+
+            <!-- Agenda dark -->
+            <section data-state="squares-off theme sidebar">
+                <h2>Agenda</h2>
+                <ul class="no-type dark-grey">
+                    <li class="fragment">Storybook</li>
+                    <li class="fragment">What’s that?</li>
+                    <li class="fragment">Why should we use it?</li>
+                    <li class="fragment">Issues</li>
+                    <li class="fragment">Addons</li>
+                </ul>
+            </section>
+
+        </section>
+		
+
+
+        <section>
+            <section>
+                <h2>Storybook</h2>
+                <small>https://github.com/storybooks/storybook</small>
+
+                <p>
+                    <b>Quick Setup:</b><br/>
+                <div class="divider">
+                        <pre>
+                             <code>
+                                > yarn global add @storybook/cli
+                                > cd [path_to_your_project]
+                                > getstorybook
+                             </code>
+                        </pre>
+                </div>
+                </p>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>What is Storybook?</h2>
+                <p class="fragment">
+                    Storybook is a development environment for UI components
+                </p>
+                <p class="fragment">
+                    It allows to browse a component library, view the different states of each component,
+                    interactively develop and test components
+                </p>
+                <p class="fragment">
+                    It comes with a lot of addons for component design, documentation
+                </p>
+                <p class="fragment">
+                    It supports many frameworks like
+                    <a href="https://github.com/storybooks/storybook/tree/master/app/react">React</a>,
+                    <a href="https://github.com/storybooks/storybook/tree/master/app/vue">Vue</a>,
+                    <a href="https://github.com/storybooks/storybook/tree/master/app/angular">Angular</a>
+                </p>
+            </section>
+            <section>
+                <div class="divider">
+                    <div>
+                         <pre>
+                             <code>
+                                 storiesOf('Welcome', module)
+                                    .add('to Storybook', () =>
+                                        <Welcome showApp={linkTo('Button')}></Welcome>
+                                     );
+                             </code>
+                         </pre>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div class="divider">
+                    <div>
+                          <pre>
+                              <code>
+                                  storiesOf('Button', module)
+                                  .add('with text', () => (
+                                    <Button onClick={action('clicked')}>Sum Ting Wong</Button>
+                                  ))
+                                  .add('with some emoji', () => (
+                                    <Button onClick={action('clicked')}>
+                                      <span role="img" aria-label="so cool">
+                                        Wi Tu Lo 😀 😎 👍 💯
+                                      </span>
+                                    </Button>
+                                  ));
+                            </code>
+                          </pre>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Why should we use it?</h2>
+                <p class="fragment">
+                    Storybook allows to develop UI components in isolation,
+                    which can improve component reuse, testability,
+                    development speed
+                </p>
+                <p class="fragment">
+                    We can share components with other teams working on React applications
+                </p>
+                <p class="fragment">
+                    Shared components will help to make them more accessible that means
+                    when we write good accessible code once,
+                    the rest teams won’t have to fix a11y problems
+                </p>
+            </section>
+            <section>
+                <h2>Issues</h2>
+                <p class="fragment">
+                    Storybook in the newest version does not support the latest typescript
+                    and you have to download alpha versions, and that version may not work very well
+                </p>
+                <p class="fragment">
+                    In projects where angularjs and angular is hard to add it and you need to use
+                    the storybook for html which is limited
+                </p>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Addons</h2>
+                <small>https://storybook.js.org/addons/addon-gallery/</small>
+
+                <p class="fragment">
+                    <b>Actions</b><br/>
+                    With actions, you can inspect events related to your components.
+                    This is pretty neat when you are manually testing your components.
+                </p>
+
+                <p class="fragment">
+                    <b>Links</b><br/>
+                    With links you can link stories together.
+                    With that, you can build demos and prototypes directly from your UI components.
+                </p>
+
+                <p class="fragment">
+                    <b>Knobs</b><br/>
+                    Knobs allow you to edit React props dynamically using the Storybook UI.
+                    You can also use Knobs as dynamic variables inside your stories.
+                </p>
+
+                <p class="fragment">
+                    <b>Notes</b><br/>
+                    With this addon, you can write notes for each story in your component.
+                    This is pretty useful when you are working with a team.
+                </p>
+            </section>
+            <section>
+                <p class="fragment">
+                    <b>Info</b><br/>
+                    If you are using Storybook as a style guide,
+                    then this addon will help you to build a nice-looking style guide with docs,
+                    automatic sample source code with a PropType explorer.
+                </p>
+
+                <p class="fragment">
+                    <b>Options</b><br/>
+                    The Storybook webapp UI can be customised with this addon.
+                    It can be used to change the header,
+                    show/hide various UI elements and to enable full-screen mode by default.
+                </p>
+
+                <p class="fragment">
+                    <b>Storyshots</b><br/>
+                    Storyshots is a way to automatically jest-snapshot all your stories.
+                </p>
+
+                <p class="fragment">
+                    <b>Backgrounds</b><br/>
+                    With this addon,
+                    you can switch between background colors and background images for your preview components.
+                    It is really helpful for styleguides.
+                </p>
+            </section>
+        </section>
+
+        <section>
+            <section class="slide-flex right" data-state="squares-off theme dark">
+                <div>
+                    <h2>IT'S TIME TO STAPH</h2>
+                </div>
+                <p>
+                    <video width="320" height="240" controls>
+                        <source src="https://img-9gag-fun.9cache.com/photo/aZ3AGdX_460svvp9.webm" type="video/webm">
+                        Your browser does not support the video tag.
+                    </video>
+                </p>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>...and more</h2>
+
+                <p class="fragment">
+                    <b>Viewport</b><br/>
+                    Viewport allows your stories to be displayed in different sizes and layouts in Storybook.
+                    This helps build responsive components inside of Storybook.
+                </p>
+
+                <p class="fragment">
+                    <b>Storybook styled components</b><br/>
+                    Switch between themes and see how your components react
+                </p>
+
+                <p class="fragment">
+                    <b>Storysource</b><br/>
+                    This addon is used to show stories source in the addon panel.
+                    Alowed javascript(default) and typescript.
+                </p>
+
+                <p class="fragment">
+                    <b>a11y</b><br/>
+                    This storybook addon can be helpfull to make your UI components more accessibile.
+                </p>
+            </section>
+            <section>
+            <div class="divider">
+                <div>
+                          <pre>
+                              <code>
+                                  // First,
+                                  // we need to install the addons:
+
+                                  > yarn add -D @storybook/addons
+                                  > yarn add -D @storybook/addon-actions @storybook/addon-links
+                            </code>
+                          </pre>
+                    <pre>
+                              <code>
+                                  // Then, we need to create a file called addons.js
+                                  // inside the storybook config directory
+                                  // and add the following content:
+
+                                  import '@storybook/addon-actions/register';
+                                  import '@storybook/addon-links/register';
+                            </code>
+                          </pre>
+                </div>
+            </div>
+        </section>
+            <section>
+                <div class="divider">
+                    <div>
+                          <pre>
+                              <code>
+                                  // Now when you are writing a story,
+                                  // import it and add some notes:
+
+                                 import { storiesOf } from '@storybook/react';
+                                 import { action } from '@storybook/addon-actions';
+                                 import { withNotes } from '@storybook/addon-notes';
+
+                                  import Button from './Button';
+
+                                  storiesOf('Button', module)
+                                    .add('with some emoji', withNotes('Ho lee Fuk')(() =>
+                                        <Button onClick={action('clicked')}>
+                                            <span role="img" aria-label="so cool">Bang Ding Ow 😀 😎 👍 💯</span>
+                                        </Button>
+                                    ));
+                            </code>
+                          </pre>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Chapter -->
+        <section data-state="squares-off theme orange">
+            <h1>And finally it's time for questions</h1>
+        </section>
+
+
+        <!-- Illustrations -->
+        <section data-state="squares-off theme orange">
+            <p><img src="https://i.iheart.com/v3/url/Ly9tZWRpYS5paGVhcnQuY29tL2NjLWNvbW1vbi9tbGliLzIxMzUvMjAxNC8xMC9kZWZhdWx0L2NhdGRpc25leV8wXzE0MTQ0MzA1MTguZ2lm" alt="Dancing cat"></p>
+        </section>
+
+        <!-- Quote -->
+        <section data-state="squares-off theme dark">
+            <q>
+                <h2>Im później przyjdziesz.</h2>
+                <h2>Tym wczesniej wyjdziesz.</h2>
+                <p>Wojciech Haberek</p>
+            </q>
+        </section>
+
+        <!-- TUTAJ KOŃCZY SIĘ PREZENTACJA -->
+    </div>
+</div>
+<script type="text/javascript">
+    window.revealConfig = {};
+</script>
+
+<script type="text/javascript" src="presentation.js"></script>
+</body>
+</html>
